@@ -1,1158 +1,421 @@
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
 
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>NutriFit | Suplementação para sua rotina</title>
+  <title>Consulta de Benefícios</title>
 
   <meta
     name="description"
-    content="Conheça nossa linha de suplementos para complementar sua rotina de treino e alimentação."
+    content="Consulte informações e condições disponíveis de forma simples e rápida."
   >
 
-  <meta name="robots" content="index, follow">
-
   <style>
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    :root {
-      --preto: #101010;
-      --preto-2: #181818;
-      --branco: #ffffff;
-      --cinza: #b5b5b5;
-      --cinza-claro: #eeeeee;
-      --verde: #b7e42b;
-      --verde-escuro: #7fa900;
-      --texto: #202020;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
+      min-height: 100vh;
+      min-height: 100svh;
+
       font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
         Arial,
-        Helvetica,
         sans-serif;
 
-      color: var(--texto);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(48, 15, 38, .58),
+          rgba(126, 24, 79, .42)
+        ),
+        url("fundo.jpg") center / cover no-repeat;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 18px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .card {
+      position: relative;
+
+      overflow: hidden;
 
       background: #ffffff;
 
-      line-height: 1.5;
+      border-radius: 32px;
+
+      padding: 34px 23px 25px;
+
+      text-align: center;
+
+      box-shadow:
+        0 25px 70px rgba(25, 5, 18, .30);
+
+      animation: entrada .6s ease;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    @keyframes entrada {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
 
-    header {
-      background: var(--preto);
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-      color: white;
-
-      position: sticky;
+    .barra {
+      position: absolute;
 
       top: 0;
+      left: 0;
 
-      z-index: 1000;
-
-      border-bottom: 1px solid #292929;
-    }
-
-    .header-inner {
       width: 100%;
+      height: 6px;
 
-      max-width: 1150px;
-
-      margin: auto;
-
-      min-height: 70px;
-
-      padding: 0 20px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-    }
-
-    .logo {
-      color: white;
-
-      text-decoration: none;
-
-      font-size: 22px;
-
-      font-weight: 900;
-
-      letter-spacing: -0.5px;
-    }
-
-    .logo span {
-      color: var(--verde);
-    }
-
-    nav {
-      display: flex;
-
-      align-items: center;
-
-      gap: 24px;
-    }
-
-    nav a {
-      color: #dddddd;
-
-      text-decoration: none;
-
-      font-size: 14px;
-
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: var(--verde);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
       background:
         linear-gradient(
-          135deg,
-          #111111,
-          #242424
+          90deg,
+          #b80e5b,
+          #e62982
         );
-
-      color: white;
-
-      padding: 75px 20px 85px;
     }
 
-    .hero-inner {
-      max-width: 1150px;
+    .icone {
+      width: 62px;
+      height: 62px;
 
-      margin: auto;
+      margin: 8px auto 20px;
 
-      display: grid;
-
-      grid-template-columns: 1.15fr .85fr;
-
-      gap: 55px;
-
+      display: flex;
       align-items: center;
+      justify-content: center;
+
+      border-radius: 20px;
+
+      background: #fbe8f2;
+
+      color: #c31666;
+
+      font-size: 29px;
     }
 
-    .tag {
+    .etiqueta {
       display: inline-block;
-
-      background: rgba(183, 228, 43, .12);
-
-      border: 1px solid rgba(183, 228, 43, .35);
-
-      color: var(--verde);
 
       padding: 7px 13px;
 
       border-radius: 30px;
 
-      font-size: 12px;
+      background: #fcecf4;
+
+      color: #a90e54;
+
+      font-size: 11px;
 
       font-weight: 800;
 
-      letter-spacing: .6px;
+      letter-spacing: .8px;
 
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    .hero h1 {
-      font-size: clamp(38px, 5vw, 65px);
+    h1 {
+      color: #241b22;
 
-      line-height: 1.03;
+      font-size: 35px;
 
-      letter-spacing: -2px;
+      line-height: 1.08;
 
-      margin-bottom: 22px;
+      letter-spacing: -1px;
+
+      font-weight: 800;
+
+      margin-bottom: 17px;
     }
 
-    .hero h1 span {
-      color: var(--verde);
+    h1 strong {
+      color: #c51667;
     }
 
-    .hero p {
-      color: #d2d2d2;
-
-      max-width: 620px;
-
-      font-size: 19px;
-
-      margin-bottom: 30px;
-    }
-
-    .cta {
-      display: inline-flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      min-height: 58px;
-
-      padding: 14px 25px;
-
-      background: var(--verde);
-
-      color: #111111;
-
-      border-radius: 12px;
-
-      text-decoration: none;
+    .descricao {
+      color: #706970;
 
       font-size: 17px;
 
-      font-weight: 800;
+      line-height: 1.5;
 
-      transition: .2s ease;
+      max-width: 340px;
+
+      margin: 0 auto 27px;
     }
 
-    .cta:hover {
-      transform: translateY(-2px);
+    .botao {
+      display: flex;
 
-      background: #c8f34a;
-    }
+      align-items: center;
+      justify-content: center;
 
-    .hero-info {
-      margin-top: 17px;
+      width: 100%;
 
-      color: #999999;
+      min-height: 66px;
 
-      font-size: 12px;
-    }
-
-    /* =========================
-       PRODUCT CARD
-    ========================= */
-
-    .produto-card {
-      background: white;
-
-      color: #171717;
-
-      border-radius: 25px;
-
-      padding: 28px;
-
-      box-shadow:
-        0 25px 70px rgba(0, 0, 0, .28);
-    }
-
-    .produto-imagem {
-      min-height: 250px;
+      padding: 15px 18px;
 
       border-radius: 18px;
 
       background:
         linear-gradient(
-          145deg,
-          #f2f2f2,
-          #dddddd
+          135deg,
+          #e1287b,
+          #c31363
         );
 
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      margin-bottom: 22px;
-    }
-
-    .produto-imagem span {
-      font-size: 76px;
-    }
-
-    .produto-card h2 {
-      font-size: 25px;
-
-      margin-bottom: 7px;
-    }
-
-    .produto-card p {
-      color: #686868;
-
-      font-size: 14px;
-
-      margin-bottom: 17px;
-    }
-
-    .produto-link {
-      color: #111111;
-
-      font-weight: 800;
+      color: #fff;
 
       text-decoration: none;
 
-      font-size: 14px;
+      font-size: 20px;
+
+      font-weight: 750;
+
+      box-shadow:
+        0 12px 28px rgba(195, 19, 99, .28);
+
+      transition: .2s ease;
     }
 
-    .produto-link:hover {
-      color: var(--verde-escuro);
+    .botao:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 16px 32px rgba(195, 19, 99, .34);
     }
 
-    /* =========================
-       BENEFÍCIOS
-    ========================= */
-
-    .secao {
-      padding: 75px 20px;
+    .botao:active {
+      transform: scale(.98);
     }
 
-    .secao-inner {
-      max-width: 1150px;
+    .seta {
+      margin-left: 10px;
 
-      margin: auto;
+      font-size: 24px;
+
+      transition: transform .2s ease;
     }
 
-    .titulo-secao {
-      text-align: center;
-
-      font-size: 36px;
-
-      line-height: 1.1;
-
-      margin-bottom: 12px;
+    .botao:hover .seta {
+      transform: translateX(4px);
     }
 
-    .subtitulo-secao {
-      text-align: center;
-
-      color: #707070;
-
-      max-width: 650px;
-
-      margin: 0 auto 42px;
-
-      font-size: 16px;
-    }
-
-    .grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 20px;
-    }
-
-    .beneficio {
-      padding: 27px;
-
-      border: 1px solid #e9e9e9;
-
-      border-radius: 18px;
-
-      background: white;
-    }
-
-    .beneficio-icon {
-      width: 46px;
-
-      height: 46px;
-
-      border-radius: 12px;
-
-      background: #f0f8d9;
-
+    .confira {
       display: flex;
 
+      justify-content: center;
       align-items: center;
+
+      gap: 7px;
+
+      margin-top: 17px;
+
+      color: #777077;
+
+      font-size: 12px;
+    }
+
+    .ponto {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #35a66f;
+    }
+
+    .linha {
+      height: 1px;
+
+      background: #eee9ed;
+
+      margin: 23px 0 17px;
+    }
+
+    .links {
+      display: flex;
 
       justify-content: center;
 
-      margin-bottom: 18px;
+      flex-wrap: wrap;
 
-      font-size: 22px;
+      gap: 9px 18px;
     }
 
-    .beneficio h3 {
-      font-size: 19px;
+    .links a {
+      color: #7b3156;
 
-      margin-bottom: 8px;
-    }
-
-    .beneficio p {
-      color: #707070;
-
-      font-size: 14px;
-    }
-
-    /* =========================
-       PRODUTOS
-    ========================= */
-
-    .produtos {
-      background: #f7f7f7;
-    }
-
-    .produto-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 22px;
-    }
-
-    .produto {
-      background: white;
-
-      border-radius: 20px;
-
-      overflow: hidden;
-
-      border: 1px solid #e7e7e7;
-    }
-
-    .produto-topo {
-      height: 230px;
-
-      background: #ededed;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 65px;
-    }
-
-    .produto-conteudo {
-      padding: 23px;
-    }
-
-    .produto-conteudo h3 {
-      font-size: 21px;
-
-      margin-bottom: 8px;
-    }
-
-    .produto-conteudo p {
-      color: #707070;
-
-      font-size: 14px;
-
-      margin-bottom: 18px;
-    }
-
-    .produto-btn {
-      display: block;
-
-      text-align: center;
-
-      padding: 13px;
-
-      border-radius: 10px;
-
-      background: #111111;
-
-      color: white;
+      font-size: 12px;
 
       text-decoration: none;
-
-      font-weight: 700;
-
-      font-size: 14px;
     }
 
-    .produto-btn:hover {
-      background: #333333;
+    .links a:hover {
+      text-decoration: underline;
     }
 
-    /* =========================
-       TRANSPARÊNCIA
-    ========================= */
+    .rodape {
+      margin-top: 15px;
 
-    .transparencia {
-      background: white;
+      color: #a09aa0;
+
+      font-size: 10px;
+
+      line-height: 1.5;
     }
 
-    .transparencia-box {
-      max-width: 850px;
+    @media (max-width: 360px) {
 
-      margin: auto;
-
-      padding: 35px;
-
-      border-radius: 20px;
-
-      background: #fafafa;
-
-      border: 1px solid #e9e9e9;
-    }
-
-    .transparencia-box h2 {
-      margin-bottom: 15px;
-
-      font-size: 25px;
-    }
-
-    .transparencia-box p {
-      color: #686868;
-
-      font-size: 14px;
-
-      margin-bottom: 12px;
-    }
-
-    .transparencia-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* =========================
-       CTA FINAL
-    ========================= */
-
-    .cta-final {
-      background: var(--preto);
-
-      color: white;
-
-      text-align: center;
-
-      padding: 70px 20px;
-    }
-
-    .cta-final h2 {
-      font-size: 37px;
-
-      margin-bottom: 14px;
-    }
-
-    .cta-final p {
-      color: #bdbdbd;
-
-      max-width: 600px;
-
-      margin: 0 auto 25px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #0b0b0b;
-
-      color: #aaa;
-
-      padding: 40px 20px;
-    }
-
-    .footer-inner {
-      max-width: 1150px;
-
-      margin: auto;
-
-      display: grid;
-
-      grid-template-columns: 1.5fr 1fr 1fr;
-
-      gap: 35px;
-    }
-
-    footer h3 {
-      color: white;
-
-      font-size: 16px;
-
-      margin-bottom: 13px;
-    }
-
-    footer p,
-    footer a {
-      color: #929292;
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-    footer a {
-      display: block;
-
-      text-decoration: none;
-
-      margin-bottom: 4px;
-    }
-
-    footer a:hover {
-      color: var(--verde);
-    }
-
-    .copyright {
-      max-width: 1150px;
-
-      margin: 30px auto 0;
-
-      padding-top: 22px;
-
-      border-top: 1px solid #252525;
-
-      font-size: 11px;
-
-      color: #6f6f6f;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 800px) {
-
-      header {
-        position: relative;
+      body {
+        padding: 12px;
       }
 
-      .header-inner {
-        min-height: 62px;
+      .card {
+        padding: 29px 18px 21px;
+
+        border-radius: 27px;
       }
 
-      nav {
-        display: none;
+      .icone {
+        width: 55px;
+        height: 55px;
+
+        font-size: 25px;
+
+        margin-bottom: 16px;
       }
 
-      .hero {
-        padding: 45px 16px 50px;
+      h1 {
+        font-size: 31px;
       }
 
-      .hero-inner {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
+      .descricao {
+        font-size: 16px;
       }
 
-      .hero h1 {
-        font-size: 42px;
+      .botao {
+        min-height: 61px;
 
-        letter-spacing: -1.4px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .cta {
-        width: 100%;
-
-        min-height: 62px;
-      }
-
-      .produto-card {
-        padding: 20px;
-
-        border-radius: 21px;
-      }
-
-      .produto-imagem {
-        min-height: 220px;
-      }
-
-      .secao {
-        padding: 55px 16px;
-      }
-
-      .titulo-secao {
-        font-size: 30px;
-      }
-
-      .grid,
-      .produto-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .beneficio {
-        padding: 22px;
-      }
-
-      .produto-topo {
-        height: 210px;
-      }
-
-      .transparencia-box {
-        padding: 25px 20px;
-      }
-
-      .cta-final {
-        padding: 55px 18px;
-      }
-
-      .cta-final h2 {
-        font-size: 30px;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-
-        gap: 25px;
+        font-size: 18px;
       }
     }
 
-    @media (max-width: 370px) {
+    @media (min-width: 700px) {
 
-      .hero h1 {
-        font-size: 36px;
+      .wrapper {
+        max-width: 470px;
       }
 
-      .titulo-secao {
-        font-size: 27px;
+      .card {
+        padding: 48px 38px 30px;
       }
 
-      .produto-imagem {
-        min-height: 185px;
+      h1 {
+        font-size: 43px;
+      }
+
+      .descricao {
+        font-size: 18px;
       }
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <main class="wrapper">
 
-  <header>
+    <section class="card">
 
-    <div class="header-inner">
+      <div class="barra"></div>
 
-      <a href="/" class="logo">
-        Nutri<span>Fit</span>
+      <div class="icone">
+        ✓
+      </div>
+
+      <div class="etiqueta">
+        CONSULTA ONLINE
+      </div>
+
+      <h1>
+        Veja o que pode estar
+        <strong>disponível</strong>
+        para você
+      </h1>
+
+      <p class="descricao">
+        Consulte informações sobre benefícios,
+        condições e oportunidades disponíveis
+        de maneira simples e rápida.
+      </p>
+
+      <a
+        href="https://melodic-desenrola.netlify.app/"
+        class="botao"
+        rel="noopener noreferrer"
+      >
+        Fazer consulta
+        <span class="seta">→</span>
       </a>
 
-      <nav>
-
-        <a href="#produtos">
-          Produtos
-        </a>
-
-        <a href="#sobre">
-          Sobre
-        </a>
-
-        <a href="#contato">
-          Contato
-        </a>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-inner">
-
-      <div>
-
-        <div class="tag">
-          SUPLEMENTAÇÃO ESPORTIVA
-        </div>
-
-        <h1>
-          Sua rotina de treino.
-          <span>Seu ritmo.</span>
-        </h1>
-
-        <p>
-          Encontre suplementos que podem complementar
-          sua rotina de alimentação e exercícios,
-          com informações claras sobre cada produto.
-        </p>
-
-        <a
-          href="#produtos"
-          class="cta"
-        >
-          Conhecer produtos
-        </a>
-
-        <div class="hero-info">
-          Consulte as informações e condições de cada produto.
-        </div>
-
+      <div class="confira">
+        <span class="ponto"></span>
+        Consulta rápida e informativa
       </div>
 
+      <div class="linha"></div>
 
-      <div class="produto-card">
-
-        <div class="produto-imagem">
-          🥤
-        </div>
-
-        <h2>
-          Linha Fitness
-        </h2>
-
-        <p>
-          Conheça opções de suplementação para
-          diferentes rotinas de treino.
-        </p>
-
-        <a
-          href="#produtos"
-          class="produto-link"
-        >
-          Ver opções →
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- BENEFÍCIOS -->
-
-  <section class="secao" id="sobre">
-
-    <div class="secao-inner">
-
-      <h2 class="titulo-secao">
-        Escolha com informação
-      </h2>
-
-      <p class="subtitulo-secao">
-        Produtos apresentados de forma transparente
-        para você conhecer composição, características
-        e condições antes da compra.
-      </p>
-
-
-      <div class="grid">
-
-        <article class="beneficio">
-
-          <div class="beneficio-icon">
-            ✓
-          </div>
-
-          <h3>
-            Informações claras
-          </h3>
-
-          <p>
-            Consulte detalhes e características
-            de cada produto antes de escolher.
-          </p>
-
-        </article>
-
-
-        <article class="beneficio">
-
-          <div class="beneficio-icon">
-            ⚡
-          </div>
-
-          <h3>
-            Para sua rotina
-          </h3>
-
-          <p>
-            Opções pensadas para complementar
-            diferentes rotinas de atividade física.
-          </p>
-
-        </article>
-
-
-        <article class="beneficio">
-
-          <div class="beneficio-icon">
-            ♡
-          </div>
-
-          <h3>
-            Compra consciente
-          </h3>
-
-          <p>
-            Verifique composição, modo de uso,
-            condições e informações do fabricante.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PRODUTOS -->
-
-  <section
-    class="secao produtos"
-    id="produtos"
-  >
-
-    <div class="secao-inner">
-
-      <h2 class="titulo-secao">
-        Conheça nossa linha
-      </h2>
-
-      <p class="subtitulo-secao">
-        Substitua os exemplos abaixo pelos seus
-        produtos reais e respectivas informações.
-      </p>
-
-
-      <div class="produto-grid">
-
-
-        <article class="produto">
-
-          <div class="produto-topo">
-            🥛
-          </div>
-
-          <div class="produto-conteudo">
-
-            <h3>
-              Proteína
-            </h3>
-
-            <p>
-              Produto para complementar a ingestão
-              de proteínas conforme sua rotina alimentar.
-            </p>
-
-            <a
-              href="/produto-proteina.html"
-              class="produto-btn"
-            >
-              Ver produto
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <article class="produto">
-
-          <div class="produto-topo">
-            💧
-          </div>
-
-          <div class="produto-conteudo">
-
-            <h3>
-              Hidratação
-            </h3>
-
-            <p>
-              Opção para complementar sua rotina
-              durante atividades físicas.
-            </p>
-
-            <a
-              href="/produto-hidratacao.html"
-              class="produto-btn"
-            >
-              Ver produto
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <article class="produto">
-
-          <div class="produto-topo">
-            🏋️
-          </div>
-
-          <div class="produto-conteudo">
-
-            <h3>
-              Performance
-            </h3>
-
-            <p>
-              Conheça as características e informações
-              do produto antes de realizar sua compra.
-            </p>
-
-            <a
-              href="/produto-performance.html"
-              class="produto-btn"
-            >
-              Ver produto
-            </a>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- TRANSPARÊNCIA -->
-
-  <section class="secao transparencia">
-
-    <div class="transparencia-box">
-
-      <h2>
-        Informações importantes
-      </h2>
-
-      <p>
-        Suplementos alimentares não substituem uma
-        alimentação equilibrada e não devem ser apresentados
-        como tratamento ou cura de doenças.
-      </p>
-
-      <p>
-        Antes de utilizar qualquer suplemento, leia as
-        informações do rótulo e siga as orientações de uso
-        indicadas pelo fabricante.
-      </p>
-
-      <p>
-        Se você possui alguma condição específica,
-        utiliza medicamentos, está grávida ou possui
-        dúvidas sobre o uso de suplementos, procure
-        orientação de um profissional habilitado.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- CTA FINAL -->
-
-  <section class="cta-final">
-
-    <h2>
-      Encontre sua opção
-    </h2>
-
-    <p>
-      Conheça os produtos disponíveis e confira
-      suas características antes de escolher.
-    </p>
-
-    <a
-      href="#produtos"
-      class="cta"
-    >
-      Ver produtos
-    </a>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer id="contato">
-
-    <div class="footer-inner">
-
-      <div>
-
-        <h3>
-          NutriFit
-        </h3>
-
-        <p>
-          Suplementação esportiva e informações
-          para complementar sua rotina de treino.
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <h3>
-          Informações
-        </h3>
+      <nav class="links" aria-label="Links legais">
 
         <a href="/politica-de-privacidade.html">
           Política de Privacidade
         </a>
 
-        <a href="/termos-de-uso.html">
+        <a href="/termos.html">
           Termos de Uso
         </a>
 
-        <a href="/politica-de-cookies.html">
-          Política de Cookies
-        </a>
-
-      </div>
-
-
-      <div>
-
-        <h3>
-          Atendimento
-        </h3>
-
         <a href="/contato.html">
-          Entre em contato
+          Contato
         </a>
 
-        <a href="mailto:contato@seudominio.com">
-          contato@seudominio.com
-        </a>
+      </nav>
 
-      </div>
+      <p class="rodape">
+        As informações desta página possuem caráter informativo.
+        Verifique as condições aplicáveis antes de tomar qualquer decisão.
+      </p>
 
-    </div>
+    </section>
 
-
-    <div class="copyright">
-
-      © 2026 NutriFit. Todos os direitos reservados.
-
-    </div>
-
-  </footer>
+  </main>
 
 </body>
-
 </html>
 ```
